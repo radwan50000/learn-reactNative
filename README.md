@@ -10,6 +10,16 @@
 npm run reset-project
 
 ```
+
+
+> This will run project and remove the cash
+
+```bash
+
+ npx expo start --clear
+
+```
+
 ## To make normal page with routing in app folder -> index.tsx :
 
 > ``` index.tsx ``` Page
