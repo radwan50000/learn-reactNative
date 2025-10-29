@@ -154,7 +154,7 @@ export default function Index() {
 <img src='./assets/img1.jpg' alt='WT' />
 
 
-> ``` _layout.tsx ``` Page
+> ``` app/(tabs)/_layout.tsx ``` Page
 
 
 ```tsx
@@ -174,3 +174,80 @@ const styles = StyleSheet.create({})
 
 ```
 
+## To hidden the upper bar we gone to make this throw change the [_layout.tsx] files in the app directory & in the (tabs) directory :
+
+> ``` app/(tabs)/_layout.tsx ``` Page
+
+
+```tsx
+
+import {StyleSheet, Text, View} from 'react-native'
+import React from 'react'
+import {Stack} from "expo-router";
+
+const _Layout = () => {
+    return (
+        <Stack>
+            <Stack.Screen
+                name='index'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <Stack.Screen
+                name='Setting'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <Stack.Screen
+                name='student/[id]'
+                options={{
+                    headerShown: false,
+                }}
+
+            />
+
+        </Stack>
+    )
+}
+export default _Layout
+const styles = StyleSheet.create({})
+
+```
+
+
+> ``` app/_layout.tsx ``` Page
+
+
+```tsx
+
+import { Stack } from "expo-router";
+import './globals.css';
+
+export default function RootLayout() {
+    return <Stack >
+
+        <Stack.Screen
+            name='(tabs)'
+            options={{
+                headerShown: false,
+            }}
+        />
+
+        <Stack.Screen
+            name='(tabs)/student/[id]'
+            options={{
+                headerShown: false,
+            }}
+        />
+
+
+    </Stack>;
+}
+
+```
+
+> in the app we define the every folder we have as screen and in the the inner layout we define every file as screen
