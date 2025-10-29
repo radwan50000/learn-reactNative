@@ -86,3 +86,65 @@ export default Setting;
     </li>
   </ul>
 <ul>
+
+
+> ``` student/[id].tsx ``` Page
+
+```tsx
+
+import {View, Text} from 'react-native'
+import React from 'react'
+import {useLocalSearchParams} from "expo-router";
+
+export default function Students() {
+    const {id} = useLocalSearchParams();
+
+    return (
+        <View>
+            <Text>
+                Welcome Student : {id}
+            </Text>
+        </View>
+    )
+}
+
+
+
+```
+
+> ``` index.tsx ``` Page
+
+
+```tsx
+
+import {Text, View} from "react-native";
+import {Link} from "expo-router";
+
+export default function Index() {
+    return (
+        <View className='w-full h-full flex justify-start items-center'>
+            <View
+                className='w-full h-full flex items-center justify-center'
+            >
+                <Text>Edit app/index.tsx to edit this screen.</Text>
+                <Link
+                    className='px-8 py-3 bg-gray-400/20 border-2 border-gray-400 mt-4 rounded-md'
+                    href='/Setting'>
+                    Setting Page
+                </Link>
+                <Link
+                    className='px-8 py-3 bg-gray-400/20 border-2 border-gray-400 mt-4 rounded-md'
+                    href='/student/Muhammed'>
+                    Student Muhammed
+                </Link>
+            </View>
+        </View>
+    );
+}
+
+
+
+
+
+
+```
