@@ -85,7 +85,8 @@ export default Setting;
       setting.tsx
     </li>
   </ul>
-<ul>
+</ul>
+
 
 
 > ``` student/[id].tsx ``` Page
