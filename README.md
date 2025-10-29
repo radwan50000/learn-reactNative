@@ -10,7 +10,7 @@
 npm run reset-project
 
 ```
-## To make normal page in app folder -> index.tsx :
+## To make normal page with routing in app folder -> index.tsx :
 
 ```tsx
 
@@ -34,6 +34,28 @@ export default function Index() {
   );
 }
 
+```
+
+> ``` Setting.tsx ``` Page
+
+```tsx
+
+import React from 'react';
+import {View , Text} from 'react-native';
+
+function Setting(){
+    return(
+        <>
+            <View>
+                <Text>
+                    Setting Page
+                </Text>
+            </View>
+        </>
+    )
+}
+
+export default Setting;
 
 
 ```
