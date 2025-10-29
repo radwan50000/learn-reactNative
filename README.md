@@ -61,3 +61,28 @@ export default Setting;
 
 
 ```
+
+
+## We can make Dynamic Page Easily with React Native because it use as same as way in the next js in the project 
+
+<ul>
+  <li>
+    app
+  </li>
+  <ul>
+    <li>
+      student
+      <ul>
+        <li>
+          [id].tsx
+        </li>
+      </ul>
+    </li>
+    <li>
+      index.tsx
+    </li>
+    <li>
+      setting.tsx
+    </li>
+  </ul>
+<ul>
