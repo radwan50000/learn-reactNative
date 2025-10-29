@@ -149,3 +149,4 @@ export default function Index() {
 # Navigation
 
 > To make Navigation in the app we must group the pages in group folder like ``` (tabs) ``` , within tabs folder we must put ``` _layout.tsx ``` file that return the ``` <Stack /> ```
+<img src='./assets/img1.jpg' alt='WT' />
