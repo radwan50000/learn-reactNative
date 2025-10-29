@@ -274,3 +274,94 @@ export default function RootLayout() {
 ```
 
 > in the app we define the every folder we have as screen and in the the inner layout we define every file as screen
+
+
+# To make Linear Gradient in React Native it Didn't Support it but we can use expo lib in it that can easily add the gradient we want to make just follow this simple code 
+
+## First We need to install this expo lib from expo using the npx 
+
+```bash
+
+npx expo install expo-linear-gradient
+
+
+```
+
+## then we can use it easily ( code ) :
+
+```tsx
+
+import React from 'react'
+import {Tabs} from "expo-router";
+import { LinearGradient} from "expo-linear-gradient";
+import {icons} from "@/constants/icons";
+import {Image, Text, View} from "react-native";
+
+const _Layout = () => {
+    return (
+        <Tabs>
+            <Tabs.Screen
+                name='index'
+                options={{
+                    title: 'Home',
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                    tabBarIcon: ({focused}) => (
+                        <>
+                            <LinearGradient
+                                colors={['#E9D5FF','#C084FC']}
+                                start={{ x: 0 , y: 0}}
+                                end={{ x: 1, y: 1 }}
+                                className='w-full min-h-14 min-w-[112px] flex flex-row items-center justify-center gap-2 rounded-full
+                                    overflow-hidden bg-gradient-to-r from-purple-200 to-purple-400'
+                            >
+                                <Image
+                                    source={icons.home}
+                                    tintColor="#000000"
+                                    className={'size-5'}
+                                />
+                                <Text>
+                                    Home
+                                </Text>
+                            </LinearGradient>
+                        </>
+                    )
+                }}
+            />
+
+            <Tabs.Screen
+                name='Search'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <Tabs.Screen
+                name='Setting'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+        </Tabs>
+    )
+}
+export default _Layout
+
+
+```
+
+
+### Explain of x and y why it's 0 and 1 :
+
+```lua
+
+(0,0)          (1,0)
+  +--------------+
+  |              |
+  |              |
+  +--------------+
+(0,1)          (1,1)
+
+
+```
