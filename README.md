@@ -146,7 +146,31 @@ export default function Index() {
 ```
 
 
+
+
 # Navigation
 
 > To make Navigation in the app we must group the pages in group folder like ``` (tabs) ``` , within tabs folder we must put ``` _layout.tsx ``` file that return the ``` <Stack /> ```
 <img src='./assets/img1.jpg' alt='WT' />
+
+
+> ``` _layout.tsx ``` Page
+
+
+```tsx
+
+import {StyleSheet, Text, View} from 'react-native'
+import React from 'react'
+import {Stack} from "expo-router";
+
+const _Layout = () => {
+    return (
+        <Stack/>
+    )
+}
+export default _Layout
+const styles = StyleSheet.create({})
+
+
+```
+
