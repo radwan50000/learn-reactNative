@@ -12,6 +12,8 @@ npm run reset-project
 ```
 ## To make normal page with routing in app folder -> index.tsx :
 
+> ``` index.tsx ``` Page
+
 ```tsx
 
 import { Text, View } from "react-native";
