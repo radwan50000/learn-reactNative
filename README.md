@@ -135,13 +135,17 @@ export default function Index() {
                 </Link>
                 <Link
                     className='px-8 py-3 bg-gray-400/20 border-2 border-gray-400 mt-4 rounded-md'
-                    href='/student/Muhammed'>
+                    href='../student/Muhammed'>
                     Student Muhammed
                 </Link>
             </View>
         </View>
     );
 }
+
+
+
+
 
 ```
 
@@ -161,15 +165,31 @@ export default function Index() {
 
 import {StyleSheet, Text, View} from 'react-native'
 import React from 'react'
-import {Stack} from "expo-router";
+import {Stack, Tabs} from "expo-router";
 
 const _Layout = () => {
     return (
-        <Stack/>
+        <Tabs>
+            <Tabs.Screen
+                name='index'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <Tabs.Screen
+                name='Setting'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+        </Tabs>
     )
 }
 export default _Layout
 const styles = StyleSheet.create({})
+
 
 
 ```
@@ -183,20 +203,49 @@ const styles = StyleSheet.create({})
 
 import {StyleSheet, Text, View} from 'react-native'
 import React from 'react'
-import {Stack} from "expo-router";
+import {Stack, Tabs} from "expo-router";
 
 const _Layout = () => {
     return (
-        <Stack>
-            <Stack.Screen
+        <Tabs>
+            <Tabs.Screen
                 name='index'
                 options={{
                     headerShown: false,
                 }}
             />
 
-            <Stack.Screen
+            <Tabs.Screen
                 name='Setting'
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+        </Tabs>
+    )
+}
+export default _Layout
+const styles = StyleSheet.create({})
+
+
+```
+
+
+> ``` app/_layout.tsx ``` Page
+
+
+```tsx
+
+import {Stack, Tabs} from "expo-router";
+import './globals.css';
+import React from "react";
+
+export default function RootLayout() {
+    return(
+        <Stack>
+            <Stack.Screen
+                name='(tabs)'
                 options={{
                     headerShown: false,
                 }}
@@ -207,45 +256,9 @@ const _Layout = () => {
                 options={{
                     headerShown: false,
                 }}
-
             />
-
         </Stack>
-    )
-}
-export default _Layout
-const styles = StyleSheet.create({})
-
-```
-
-
-> ``` app/_layout.tsx ``` Page
-
-
-```tsx
-
-import { Stack } from "expo-router";
-import './globals.css';
-
-export default function RootLayout() {
-    return <Stack >
-
-        <Stack.Screen
-            name='(tabs)'
-            options={{
-                headerShown: false,
-            }}
-        />
-
-        <Stack.Screen
-            name='(tabs)/student/[id]'
-            options={{
-                headerShown: false,
-            }}
-        />
-
-
-    </Stack>;
+    );
 }
 
 ```
