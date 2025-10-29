@@ -365,3 +365,152 @@ export default _Layout
 
 
 ```
+
+## Example on Full _layout.tsx page of grouping pages to make navigation
+
+
+```tsx
+
+
+import React from 'react'
+import {Tabs} from "expo-router";
+import {LinearGradient} from "expo-linear-gradient";
+import {icons} from "@/constants/icons";
+import {Image, Text, View} from "react-native";
+
+
+const _Layout = () => {
+
+    const BarButton = ({focused, title, icon}: any) => {
+        if (focused) {
+            return (
+                <>
+                    <LinearGradient
+                        colors={['#bfa6e0', '#9f5fe5']}
+                        start={{x: 0, y: 0}}
+                        end={{x: 1, y: 0}}
+                        className='w-full min-h-16 min-w-[100px] flex flex-row items-center justify-center gap-2 rounded-full
+                                    overflow-hidden mt-4'
+                    >
+                        <Image
+                            source={icon}
+                            tintColor="#0f0d23"
+                            className={'size-5'}
+                        />
+                        <Text className={'text-[0.9rem] text-[#0f0d23]'}>
+                            {title}
+                        </Text>
+                    </LinearGradient>
+                </>
+            )
+        }
+
+        return (
+            <>
+                <View
+                    className='w-full min-h-16 min-w-[112px] flex flex-row items-center justify-center gap-2 rounded-full
+                                overflow-hidden mt-4'
+                >
+                    <Image
+                        source={icon}
+                        tintColor="#E2E0EEFF"
+                        className={'size-5'}
+                    />
+                </View>
+            </>
+        )
+    }
+
+    return (
+        <Tabs
+            screenOptions={{
+                tabBarShowLabel: false,
+                tabBarItemStyle: {
+                    width: '100%',
+                    height: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                },
+                tabBarStyle: {
+                    backgroundColor: '#0f0d23',
+                    marginBottom: 36,
+                    marginHorizontal: 20,
+                    borderRadius: 50,
+                    height: 52,
+                    position: 'absolute',
+                    overflow: 'hidden',
+                    borderWidth: 1,
+                    borderColor: '#0f0d23',
+                }
+            }}
+        >
+            <Tabs.Screen
+                name='index'
+                options={{
+                    title: 'Home',
+                    headerShown: false,
+                    tabBarIcon: ({focused}) => (
+                        <BarButton
+                            focused={focused}
+                            title={'Home'}
+                            icon={icons.home}
+                        />
+                    )
+                }}
+            />
+
+            <Tabs.Screen
+                name='Search'
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({focused}) => (
+                        <BarButton
+                            focused={focused}
+                            title={'Search'}
+                            icon={icons.search}
+                        />
+                    )
+                }}
+            />
+
+
+            <Tabs.Screen
+                name={'Bookmarks'}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({focused}) => (
+                        <BarButton
+                            focused={focused}
+                            title={'Bookmarks'}
+                            icon={icons.save}
+                        />
+                    )
+                }}
+
+
+            />
+
+
+            <Tabs.Screen
+                name='Setting'
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({focused}) => (
+                        <BarButton
+                            focused={focused}
+                            title={'Profile'}
+                            icon={icons.person}
+                        />
+                    )
+                }}
+            />
+
+
+        </Tabs>
+    )
+}
+export default _Layout
+
+
+
+```
